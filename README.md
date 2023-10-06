@@ -1,3 +1,5 @@
+![](./demo_ios.gif)
+
 ## Reference
 
 - https://docs.pmnd.rs/react-three-fiber/getting-started/introduction
