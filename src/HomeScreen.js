@@ -1,4 +1,4 @@
-import { StyleSheet, Button, ScrollView, StatusBar } from "react-native";
+import { StyleSheet, ScrollView, Text, Pressable } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -6,21 +6,27 @@ export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Button
+        <Pressable
           onPress={() => navigation.navigate("Box")}
           title="Box"
-          color="black"
-        />
-        <Button
+          style={styles.button}
+        >
+          <Text style={{ color: "white" }}>Box</Text>
+        </Pressable>
+        <Pressable
           onPress={() => navigation.navigate("Duck")}
           title="Duck"
-          color="black"
-        />
-        <Button
+          style={styles.button}
+        >
+          <Text style={{ color: "white" }}>Duck</Text>
+        </Pressable>
+        <Pressable
           onPress={() => navigation.navigate("Gun")}
           title="Gun"
-          color="black"
-        />
+          style={styles.button}
+        >
+          <Text style={{ color: "white" }}>Gun</Text>
+        </Pressable>
       </ScrollView>
     </SafeAreaView>
   );
@@ -31,7 +37,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-around",
   },
-  scrollView: {
-    flex: 1,
+  button: {
+    padding: 22,
+    borderRadius: 12,
+    backgroundColor: "tomato",
+    margin: 12,
   },
 });

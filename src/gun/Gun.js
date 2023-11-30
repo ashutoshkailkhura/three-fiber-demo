@@ -1,5 +1,5 @@
 import React, { Suspense, useRef } from "react";
-import { useGLTF } from "@react-three/drei/native";
+import { Reflector, useGLTF, useTexture } from "@react-three/drei/native";
 import gun from "./gun.glb";
 import { Canvas, useFrame } from "@react-three/fiber/native";
 import Box from "../box";
@@ -241,7 +241,17 @@ useGLTF.preload(gun);
 
 export default function Gun() {
   return (
-    <Canvas style={{ flex: 1 }}>
+    <Canvas
+      style={{ flex: 1 }}
+      concurrent
+      gl={{ alpha: false }}
+      pixelRatio={[1, 1.5]}
+      camera={{
+        position: [70, 25, 30],
+        fov: 5, // camera position near or far
+      }}
+    >
+      <color attach="background" args={["white"]} />
       <ambientLight intensity={1} />
       <directionalLight
         intensity={1}
@@ -250,7 +260,9 @@ export default function Gun() {
         position={[1, 1, 1]}
       />
       <Suspense fallback={<Box position={[0, 0, 0]} />}>
-        <GunModel />
+        <group position={[0, 0, 0]}>
+          <GunModel />
+        </group>
       </Suspense>
     </Canvas>
   );
