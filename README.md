@@ -1,4 +1,4 @@
-![](./demo_ios.gif)
+<img src="./demo_ios.gif"  width="30%" height="80%">
 
 ## Reference
 
